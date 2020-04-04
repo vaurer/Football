@@ -7,8 +7,8 @@ public class Striker extends Footballer {
     private final double minSpeed = 1;
     private double goalsPerGame;
 
-    public Striker(String firstName, String lastName, int age, SPORTTYPE sporttype, double skill, int playerNumber, double salary, double goalsPerGame) {
-        super(firstName, lastName, age, sporttype, skill, playerNumber, salary);
+    public Striker(String firstName, String lastName, int age, SPORTTYPE sporttype, int playerNumber, double salary, double goalsPerGame) {
+        super(firstName, lastName, age, sporttype, playerNumber, salary);
         this.speed = calculateSpeed();
         this.goalsPerGame = goalsPerGame;
     }
