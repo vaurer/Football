@@ -2,13 +2,13 @@ package va.CC;
 
 import java.util.ArrayList;
 
-public class FootbalClub {
+ public class FootballClub {
     private String name;
     private String address;
-    private ArrayList <Clerk> employees;
-    private ArrayList <Footballer> footballers;
+    private ArrayList<Clerk> employees;
+    private ArrayList<Footballer> footballers;
 
-    public FootbalClub(String name, String address, ArrayList<Clerk> employees, ArrayList<Footballer> footballers) {
+    public FootballClub(String name, String address, ArrayList<Clerk> employees, ArrayList<Footballer> footballers) {
         this.name = name;
         this.address = address;
         this.employees = employees;
