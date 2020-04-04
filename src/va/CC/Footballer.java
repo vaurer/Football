@@ -1,9 +1,8 @@
 package va.CC;
 
 public class Footballer extends sportPerson{
-    private int playerNumber;
+    private int playerNumber = 0;
     private double salary;
-
 
     public Footballer(String firstName, String lastName, int age, SPORTTYPE sporttype, double skill, int playerNumber, double salary) {
         super(firstName, lastName, age, sporttype, skill);
@@ -19,4 +18,5 @@ public class Footballer extends sportPerson{
     public double getPaid(){
         return salary;
     }
+
 }

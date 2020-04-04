@@ -6,11 +6,13 @@ public class sportPerson extends Person {
 
     private SPORTTYPE sporttype;
     private double skill = 0;
+    private double minSkill = 1;
+    private double maxSkill = 100;
 
-    public sportPerson(String firstName, String lastName, int age, SPORTTYPE sporttype, double skill) {
+    public sportPerson(String firstName, String lastName, int age, SPORTTYPE sporttype) {
         super(firstName, lastName, age);
         this.sporttype = sporttype;
-        this.skill = skill;
+        this.skill = calculateSkill();
     }
 
     public SPORTTYPE getSporttype() {
@@ -35,6 +37,11 @@ public class sportPerson extends Person {
             temp++;
         }
         skill = skill + temp;
+        return skill;
+    }
+
+    public double calculateSkill() {
+        double skill = (Math.random() * (maxSkill - minSkill)) + minSkill;
         return skill;
     }
 }
