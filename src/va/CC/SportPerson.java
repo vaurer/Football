@@ -1,15 +1,15 @@
 package va.CC;
 
-public class sportPerson extends Person {
+public class SportPerson extends Person {
 
-     enum SPORTTYPE {INDIVIDUAL, TEAM}
+    enum SPORTTYPE {INDIVIDUAL, TEAM}
 
     private SPORTTYPE sporttype;
     private double skill = 0;
     private double minSkill = 1;
     private double maxSkill = 100;
 
-    public sportPerson(String firstName, String lastName, int age, SPORTTYPE sporttype) {
+    public SportPerson(String firstName, String lastName, int age, SPORTTYPE sporttype) {
         super(firstName, lastName, age);
         this.sporttype = sporttype;
         this.skill = calculateSkill();
