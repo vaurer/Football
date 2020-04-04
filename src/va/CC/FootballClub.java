@@ -66,4 +66,11 @@ public class FootballClub {
         this.footballers.add(footballer);
         calculateSalary();
     }
+
+    public void playerList() {
+        System.out.println("\nFootball Club "+ this.name + " has "+this.getFootballers().size()+" members");
+        for (int i = 0; i < getFootballers().size(); i++) {
+            System.out.println("Player " + (i + 1) + " " + getFootballers().get(i).getLastName());
+        }
+    }
 }
