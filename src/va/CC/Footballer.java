@@ -1,7 +1,17 @@
 package va.CC;
 
 public class Footballer extends SportPerson {
+
     private int playerNumber;
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     private double salary;
 
     public Footballer(String firstName, String lastName, int age, SPORTTYPE sporttype, int playerNumber, double salary) {
@@ -10,6 +20,14 @@ public class Footballer extends SportPerson {
         this.salary = salary;
 
     }
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
+    }
+
 
     public double playFootball(){
         getPaid();

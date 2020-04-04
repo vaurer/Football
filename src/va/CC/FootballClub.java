@@ -2,17 +2,19 @@ package va.CC;
 
 import java.util.ArrayList;
 
- public class FootballClub {
+public class FootballClub {
     private String name;
     private String address;
+    private double budget;
     private ArrayList<Clerk> employees;
     private ArrayList<Footballer> footballers;
 
-    public FootballClub(String name, String address, ArrayList<Clerk> employees, ArrayList<Footballer> footballers) {
+    public FootballClub(String name, String address, double budget) {
         this.name = name;
         this.address = address;
-        this.employees = employees;
-        this.footballers = footballers;
+        this.budget = budget;
+        this.employees = new ArrayList<>();
+        this.footballers = new ArrayList<>();
     }
 
     public String getName() {
@@ -31,6 +33,14 @@ import java.util.ArrayList;
         this.address = address;
     }
 
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
     public ArrayList<Clerk> getEmployees() {
         return employees;
     }
@@ -47,5 +57,13 @@ import java.util.ArrayList;
         this.footballers = footballers;
     }
 
+    private double calculateSalary() {
+        double salary = budget / (employees.size() + footballers.size() + 1);
+        return salary;
+    }
 
+    public void assignPlayer(Footballer footballer) {
+        this.footballers.add(footballer);
+        calculateSalary();
+    }
 }
