@@ -1,6 +1,7 @@
 package va.CC;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class FootballClub {
     private String name;
@@ -8,6 +9,7 @@ public class FootballClub {
     private double budget;
     private ArrayList<Clerk> employees;
     private ArrayList<Footballer> footballers;
+    private ArrayList playerNumberList;
 
     public FootballClub(String name, String address, double budget) {
         this.name = name;
@@ -15,6 +17,7 @@ public class FootballClub {
         this.budget = budget;
         this.employees = new ArrayList<>();
         this.footballers = new ArrayList<>();
+        this.playerNumberList = new ArrayList<>();
     }
 
     public String getName() {
@@ -62,15 +65,33 @@ public class FootballClub {
         return salary;
     }
 
+    public int assignPlayerNumber() {
+        int newPlayerNumber = 0;
+        Random random = new Random();
+        while (newPlayerNumber == 0) {
+            int temp = random.nextInt(100 - 1) + 1;
+            if (playerNumberList.contains(temp)) {
+                newPlayerNumber = 0;
+                break;
+            } else {
+                newPlayerNumber = temp;
+                break;
+            }
+        }
+        return newPlayerNumber;
+    }
+
     public void assignPlayer(Footballer footballer) {
         this.footballers.add(footballer);
-        calculateSalary();
+        footballer.setSalary(calculateSalary());
+        footballer.setPlayerNumber(assignPlayerNumber());
+
     }
 
     public void playerList() {
-        System.out.println("\nFootball Club "+ this.name + " has "+this.getFootballers().size()+" members");
+        System.out.println("\nFootball Club " + this.name + " has " + this.getFootballers().size() + " members");
         for (int i = 0; i < getFootballers().size(); i++) {
-            System.out.println("Player " + (i + 1) + " " + getFootballers().get(i).getLastName());
+            System.out.println("Player " + (i + 1) + " " + getFootballers().get(i).getLastName() + " with number " + getFootballers().get(i).getPlayerNumber() + " earns " + Math.round(getFootballers().get(i).getSalary()) + " € per month");
         }
     }
 }

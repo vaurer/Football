@@ -16,11 +16,18 @@ public class Main {
 
         MidfieldPlayer midfieldPlayer1 = new MidfieldPlayer("Luka", "Modric", 25, SportPerson.SPORTTYPE.TEAM, 0, 0);
 
+        Clerk clerk1 = new Clerk("Max", "Mustermann", 35, 41.5);
+
         FootballClub footballClub1 = new FootballClub("Dinamo", "Maksimirska 1", 5000000);
         //System.out.println(footballClub1.getName());
         footballClub1.assignPlayer(striker1);
         footballClub1.assignPlayer(goalkeeper1);
         footballClub1.assignPlayer(midfieldPlayer1);
-       footballClub1.playerList();
+
+        footballClub1.playerList();
+        System.out.println(goalkeeper1.getSalary());
+        System.out.println(goalkeeper1.getSkill());
+        goalkeeper1.doTraining(5);
+        System.out.println(goalkeeper1.getSkill());
     }
 }
