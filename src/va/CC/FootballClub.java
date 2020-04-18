@@ -10,14 +10,26 @@ public class FootballClub {
     private ArrayList<Clerk> employees;
     private ArrayList<Footballer> footballers;
     private ArrayList playerNumberList;
+    public double membershipFee;
+    public ArrayList<ClubMembers> clubMembers;
 
-    public FootballClub(String name, String address, double budget) {
+    public double getMembershipFee() {
+        return membershipFee;
+    }
+
+    public void setMembershipFee(double membershipFee) {
+        this.membershipFee = membershipFee;
+    }
+
+    public FootballClub(String name, String address, double budget, double membershipFee) {
         this.name = name;
         this.address = address;
         this.budget = budget;
         this.employees = new ArrayList<>();
         this.footballers = new ArrayList<>();
         this.playerNumberList = new ArrayList<>();
+        this.membershipFee = membershipFee;
+        this.clubMembers = new ArrayList<>();
     }
 
     public String getName() {
@@ -60,9 +72,14 @@ public class FootballClub {
         this.footballers = footballers;
     }
 
-    private double calculateSalary() {
+    private double calculateSportsmanSalary() {
         double salary = budget / (employees.size() + footballers.size() + 1);
         return salary;
+    }
+
+    private double calculateWorkerWage() {
+        double hourWage = ((budget / 1000) / (employees.size() + footballers.size() + 1));
+        return hourWage;
     }
 
     public int assignPlayerNumber() {
@@ -83,7 +100,7 @@ public class FootballClub {
 
     public void assignPlayer(Footballer footballer) {
         this.footballers.add(footballer);
-        footballer.setSalary(calculateSalary());
+        footballer.setSalary(calculateSportsmanSalary());
         footballer.setPlayerNumber(assignPlayerNumber());
 
     }
@@ -93,5 +110,19 @@ public class FootballClub {
         for (int i = 0; i < getFootballers().size(); i++) {
             System.out.println("Player " + (i + 1) + " " + getFootballers().get(i).getLastName() + " with number " + getFootballers().get(i).getPlayerNumber() + " earns " + Math.round(getFootballers().get(i).getSalary()) + " € per month");
         }
+    }
+
+    public void assignManagement(Management management) {
+        this.employees.add(management);
+    }
+
+    public void assignMembers(ClubMembers clubMember) {
+        this.clubMembers.add(clubMember);
+        this.budget = this.budget + this.membershipFee;
+    }
+
+    public void assignClerks(Clerk employees) {
+        this.employees.add(employees);
+
     }
 }
